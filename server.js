@@ -5,8 +5,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const path = require("path")
-const routes = require('../routes')
-// routes exist at ./routes in this file. on npm start build is run, and from the dist file where the app runs, routes is located at ../routes
+const routes = require('./routes')
 
 const app = express()
 
