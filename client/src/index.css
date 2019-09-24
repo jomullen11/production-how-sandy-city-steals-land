@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body, html {
+height: 100%;
+}
+
+hr{
+border: 5px solid #bdc3c7;
+  /* margin: 20px auto;
+  padding: 20px;
+  max-width: 700px; */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+fieldset{
+border: 3px solid darkgray;
+}
+
+legend{
+width:inherit; /* Or auto */
+padding:0 10px; /* To give a bit of padding on the left and right */
+border-bottom:none;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'Lato', sans-serif;
+}
+
+p{
+margin-left: 25px;
+margin-right: 25px;
+line-height: 1.5em;
+font-size: 1.1rem;
+font-family: 'PT Sans', serif;
+}
+
+/* Css for under construction page */
+.under-construction-page{
+text-align: center;
+margin-left: -5vw;
+background: url(under-construction.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+padding-top: 100vh
+}
+
+/* Styling that is used across multiple pages */
+.update-form-label{
+  font-size: 1.3rem;
+}
+
+/* Styiling for the home page */
+.home-page{
+border: 20px solid #bdc3c7;
+margin: 20px auto;
+padding: 20px;
+max-width: 900px;
+width: 80%;
+background-color: white;
+}
+
+/* Styling for the article and bulletpoints*/
+.bullet-points{
+  text-transform: capitalize;
+  font-size: 1.1rem;
+}
+
+.section-header{
+  text-transform: capitalize;
+}
+
+.section-body::first-line { 
+padding-left: 50px;
+text-indent: 10px;
+}
+
+.section-body::first-letter{
+  font-size: 1.25rem;
+}
+
+/* comments section */
+.write-comment{
+padding: 2vh 1vw;
+}
+
+.comment-body{
+font-size: 1.3rem;
+/* margin-bottom: -0.2em */
+}
+
+/* Navbar */
+.navbar-links{
+font-size: 1.1rem
+}
+
+.navbar-header{
+font-size: 1.4rem
+}
+
+/* related articles page */
+.related-articles-card{
+width: 70vw;
+padding: 20px;
+text-align: center;
+}
+
+.related-articles-page{
+background-color: #C7C1BD;
+
+/* Full height */
+height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+
+border: solid 25px #C7BDBE;
+}
+
+.article-picture{
+height: 35vh;
+width: 55.55vw;
+}
+
+/* Breakpoints for responsiveness */
+/* @include media-breakpoint-up(sm) {
+  textarea{
+    width: 69vw;
+}
+}
+
+@include media-breakpoint-up(md) {
+  textarea{
+    width: 60vw;
+}
+} */
