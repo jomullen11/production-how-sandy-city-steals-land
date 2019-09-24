@@ -24,7 +24,6 @@ const WriteComment = props => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    console.log(commentBody);
     await fetch(`/api/comments`, {
       method: "POST",
       headers: { "content-type": "application/json" },

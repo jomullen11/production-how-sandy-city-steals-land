@@ -17,7 +17,6 @@ class UpdatePageText extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    console.log('well shit')
     await this.createSectionId();
     fetch(`/api/sections/${this.props.pageTextInfo._id}`, {
       method: "PUT",
