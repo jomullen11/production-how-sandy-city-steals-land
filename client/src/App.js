@@ -3,8 +3,8 @@ import Routes from "./Nav/Routes";
 
 // Implement sign in and cookies acceptance
 const App = () => {
-  const [email, setEmail] = useState('');
-  // const [email, setEmail] = useState('jordantmullen11@gmail.com')
+  // const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('jordantmullen11@gmail.com')
   // const [email, setEmail] = useState('jdogm@msn.com')
   const [isAdmin, setAdmin] = useState(false);
 
