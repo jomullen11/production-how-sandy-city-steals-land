@@ -29,10 +29,9 @@ const WriteComment = props => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(commentBody)
     })
+      .then(() => alert("Thanks for Your Comment"))
       .then(() => resetNameInput())
       .then(() => resetCommentInput())
-      //   .then(() => resetEmailInput())
-      .then(() => alert("Thanks for Your Comment"))
       .catch(err => console.log(err));
   };
 

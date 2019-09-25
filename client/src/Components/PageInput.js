@@ -47,11 +47,11 @@ const PageInput = props => {
       body: JSON.stringify(sectionState)
     })
       .then(() => alert("success"))
+      .then(() => resetSectionHeaderInput())
+      .then(() => resetSectionBody1Input())
+      .then(() => resetSectionBody2Input())
+      .then(() => resetSectionBody3Input())
       .catch(err => console.log(err));
-    resetSectionHeaderInput();
-    resetSectionBody1Input();
-    resetSectionBody2Input();
-    resetSectionBody3Input();
   };
 
   useEffect(() => {
