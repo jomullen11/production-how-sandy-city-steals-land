@@ -10,6 +10,7 @@ const Home = props => {
   const [bulletPoints, setBulletPoints] = useState("");
   const [pageTextDisplay, setPageTextDisplay] = useState([]);
   const [commentRead, setCommentRead] = useState([]);
+  const [pageInputDisplay, setPageInputDisplay] = useState(false)
 
   // Both are defined in App
   const isAdmin = props.isAdmin;
@@ -66,6 +67,22 @@ const Home = props => {
       .catch(err => console.log(err));
   };
 
+  const togglePageInput = () => {
+    setPageInputDisplay(!pageInputDisplay)
+  }
+
+  const toggleInputButton = () => (
+    <form className="form-group">
+      <button type="button" className="btn btn-primary form-control"onClick={togglePageInput}>
+        { pageInputDisplay ?
+          "Close Page Input"
+          :
+          "Add New Article"
+        }
+      </button>
+    </form>
+  )
+
   useEffect(() => {
     getBulletPoints();
     getPageTextInfo();
@@ -76,12 +93,21 @@ const Home = props => {
     <div className="container home-page">
       <h1 className="display6">How Sandy City Steals Land</h1>
 
-      <PageInput isAdmin={isAdmin} />
+      { isAdmin ?
+        toggleInputButton()
+        : null }
+        { pageInputDisplay ?
+        <PageInput isAdmin={isAdmin} />
+        :
+        null
+      }
+      {/* <PageInput isAdmin={isAdmin} /> */}
 
       <ArticlePresenter
         bulletPoints={bulletPoints}
         pageTextDisplay={pageTextDisplay}
       />
+
 
       <hr />
 

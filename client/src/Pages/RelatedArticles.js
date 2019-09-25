@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ArticlePresenter from "../Components/ArticlesPresenter";
-import ArticlesInput from '../Components/ArticlesInput'
+import RelatedArticlesInput from '../Components/RelatedArticlesInput'
 
 const RelatedArticles = props => {
   const [readArticle, setReadArticle] = useState("");
@@ -53,7 +53,7 @@ const RelatedArticles = props => {
       toggleInputButton()
       : null }
       { articleInputDisplay ?
-      <ArticlesInput />
+      <RelatedArticlesInput />
       :
       null
       }
