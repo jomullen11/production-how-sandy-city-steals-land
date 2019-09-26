@@ -3,10 +3,9 @@ import Routes from "./Nav/Routes";
 
 // Implement sign in and cookies acceptance
 const App = () => {
-  const [email, setEmail] = useState('');
-  // const [email, setEmail] = useState('jordantmullen11@gmail.com')
-  // const [email, setEmail] = useState('jdogm@msn.com')
-  const [isAdmin, setAdmin] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const admin = ["jordantmullen11@gmail.com"];
 
   function readCookie(name) {
     var key = name + "=";
@@ -25,12 +24,18 @@ const App = () => {
 
   // reloads the page if email is null everytime you come back to the window to reload forms
   const pageReload = () => {
-    if (email === null ) {
-      setTimeout(function() {window.onblur= function() {window.onfocus= function () {window.location.reload(true)}}}, 2000)
+    if (email === null) {
+      setTimeout(function() {
+        window.onblur = function() {
+          window.onfocus = function() {
+            window.location.reload(true);
+          };
+        };
+      }, 2000);
     } else {
-      return
+      return;
     }
-  }
+  };
 
   // sets the email state to who is signed in
   const setEmailState = () => {
@@ -39,27 +44,29 @@ const App = () => {
 
   // used to clear state once user signs out
   const clearUserState = () => {
-    setEmail(null)
-  }
+    setEmail(null);
+  };
 
-  // Sets admin state 
+  // Sets admin state
   const setAdminState = () => {
-    if (
-      // email === "jscojos@gmail.com" ||
-      email === "jordantmullen11@gmail.com"
-    ) {
-      setAdmin(true);
+    if (admin.includes(email) === true) {
+      setIsAdmin(true);
     } else {
-      setAdmin(false);
+      setIsAdmin(false);
     }
   };
 
   // If browser is safari this shows just below the sign in until the user refreshes the page
-  const browserRefreshWarning = (props) => (
-      <div className="text-right">
-        {email === null ? <p>If you see this message after signing in please <a href={window.location.pathname}>Refresh</a> page</p> : null }
-      </div>
-  )
+  const browserRefreshWarning = props => (
+    <div className="text-right">
+      {email === null ? (
+        <p>
+          If you see this message after signing in please{" "}
+          <a href={window.location.pathname}>Refresh</a> page
+        </p>
+      ) : null}
+    </div>
+  );
 
   // Clears email in state once user signs out
   document.getElementById("sign-out").addEventListener("click", clearUserState);
@@ -71,9 +78,11 @@ const App = () => {
 
   return (
     <>
-    {/* Navbar is in HTML file */}
+      {/* Navbar is in HTML file */}
       {email === null ? pageReload() : null}
+
       {browserRefreshWarning()}
+
       <Routes isAdmin={isAdmin} email={email} />
     </>
   );
