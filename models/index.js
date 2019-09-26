@@ -16,7 +16,7 @@ const relatedArticlesDbRequset = monk(relatedArticlesDbUrl)
 // request by the Collection's Name
 const sectionsAndHeaders = sectionsDbRequest.get('HeaderAndBody')
 const comments = commentsDbRequset.get('Comments')
-const relatedArticles = relatedArticlesDbRequset.get('Articles')
+const relatedArticles = relatedArticlesDbRequset.get('Article-Data')
 
 module.exports = {
     sectionsAndHeaders,
