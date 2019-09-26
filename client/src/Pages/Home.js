@@ -45,7 +45,7 @@ const Home = props => {
             isAdmin={isAdmin}
           />
         ))
-      )
+        )
       .then(components => setPageTextDisplay(components))
       .catch(err => console.log(err));
   };
@@ -83,6 +83,15 @@ const Home = props => {
     </form>
   )
 
+  const pageIsLoadingOutput = () => (
+    <div className="text-center">
+    <h3>This page is loading, please standby...</h3>
+    {/* <br/> */}
+    <small className="text-muted container">If you're the site admin, please sign in and add page content</small>
+
+    </div>
+  )
+
   useEffect(() => {
     getBulletPoints();
     getPageTextInfo();
@@ -102,16 +111,19 @@ const Home = props => {
         null
       }
       {/* <PageInput isAdmin={isAdmin} /> */}
-
+      { pageTextDisplay.length > 0 ?
       <ArticlePresenter
-        bulletPoints={bulletPoints}
-        pageTextDisplay={pageTextDisplay}
+      bulletPoints={bulletPoints}
+      pageTextDisplay={pageTextDisplay}
       />
+      :
+      pageIsLoadingOutput()
+      }
 
 
       <hr />
 
-      <Comments isAdmin={isAdmin} email={email} commentRead={commentRead} />
+      <Comments isAdmin={isAdmin} email={email} commentRead={commentRead} pageIsLoadingOutput={pageIsLoadingOutput}/>
     </div>
   );
 };

@@ -7,7 +7,22 @@ const CommentBox = props => {
   // commentRead is set in Home
   const commentRead = props.commentRead;
 
-  const commentDisplay = commentRead;
+  const noCommentOutput = () => (
+    <div className="text-center">
+      <h3>There are no comments yet</h3>
+      <h2>Be the first to leave a comment!</h2>
+
+    </div>
+  )
+  const commentDisplay = () => (
+    <div>
+      { commentRead > 0 ?
+        commentRead
+        :
+        noCommentOutput()
+    }
+    </div>
+  )
 
   return (
     <>
@@ -59,7 +74,7 @@ const CommentBox = props => {
           role="tabpanel"
           aria-labelledby="read-and-write-tab"
         >
-          {commentDisplay}
+          {commentDisplay()}
         </div>
         <div
           className="tab-pane fade show active"
@@ -74,7 +89,7 @@ const CommentBox = props => {
             />
           }{" "}
           <br />
-          {commentDisplay}
+          {commentDisplay()}
         </div>
         <div
           className="tab-pane fade"

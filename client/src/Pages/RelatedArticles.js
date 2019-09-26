@@ -42,6 +42,15 @@ const RelatedArticles = props => {
     setArticleInputDisplay(!articleInputDisplay)
   }
 
+  const pageIsLoadingOutput = () => (
+    <div className="text-center">
+    <h3>This page is loading, please standby...</h3>
+    {/* <br/> */}
+    <small className="text-muted container">If you're the site admin, please sign in and add page content</small>
+
+    </div>
+  )
+
   useEffect(() => {
     getArticles()
   })
@@ -56,8 +65,13 @@ const RelatedArticles = props => {
       <RelatedArticlesInput />
       :
       null
-      }
+    }
+
+    { readArticle.length > 0 ?
       {readArticle}
+      :
+      pageIsLoadingOutput()
+    }
 
     </div>
   );
