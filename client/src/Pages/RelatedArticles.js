@@ -68,7 +68,7 @@ const RelatedArticles = props => {
     }
 
     { readArticle.length > 0 ?
-      {readArticle}
+      readArticle
       :
       pageIsLoadingOutput()
     }
