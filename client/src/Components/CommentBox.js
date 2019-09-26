@@ -16,7 +16,7 @@ const CommentBox = props => {
   )
   const commentDisplay = () => (
     <div>
-      { commentRead > 0 ?
+      { commentRead.length > 0 ?
         commentRead
         :
         noCommentOutput()
